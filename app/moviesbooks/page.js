@@ -30,85 +30,50 @@ export default function About() {
   ];
 
   const renderContent = () => {
-    if (selectedCategory === 'The Lord of the Rings') {
-      return (
-        <>
-          <div className='mb-8'>
-            <h3 className='text-3xl font-semibold mb-4 text-black text-center'>Books</h3>
-            <div className='flex flex-wrap justify-center mb-4'>
-              {lotrBooks.map((book, index) => (
-                <a key={index} href={book.link} target="_blank" rel="noopener noreferrer" className='flex flex-col items-center mx-4 mb-6'>
-                  <div className='relative group'>
-                    <img
-                      src={book.image}
-                      alt={book.name}
-                      className='w-72 h-96 object-cover rounded-lg shadow-lg transition-transform duration-300 transform group-hover:scale-110'
-                    />
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
+    const books = selectedCategory === 'The Lord of the Rings' ? lotrBooks : hobbitBooks;
+    const movies = selectedCategory === 'The Lord of the Rings' ? lotrMovies : hobbitMovies;
 
-          <div>
-            <h3 className='text-3xl font-semibold mb-4 text-black text-center'>Movies</h3>
-            <div className='flex flex-wrap justify-center mb-4'>
-              {lotrMovies.map((movie, index) => (
-                <a key={index} href={movie.link} target="_blank" rel="noopener noreferrer" className='flex flex-col items-center mx-4 mb-6'>
-                  <div className='relative group'>
-                    <img
-                      src={movie.image}
-                      alt={movie.name}
-                      className='w-72 h-96 object-cover rounded-lg shadow-lg transition-transform duration-300 transform group-hover:scale-110'
-                    />
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </>
-      );
-    } else if (selectedCategory === 'The Hobbit') {
-      return (
-        <>
-          <div className='mb-8'>
-            <h3 className='text-3xl font-semibold mb-4 text-black text-center'>Books</h3>
-            <div className='flex flex-col items-center'>
-              <a href={hobbitBooks[0].link} target="_blank" rel="noopener noreferrer" className='flex flex-col items-center mx-4 mb-6'>
+    return (
+      <>
+        <div className='mb-8'>
+          <h3 className='text-3xl font-semibold mb-4 text-black text-center'>Books</h3>
+          <div className='flex flex-wrap justify-center mb-4'>
+            {books.map((book, index) => (
+              <a key={index} href={book.link} target="_blank" rel="noopener noreferrer" className='flex flex-col items-center mx-4 mb-6'>
                 <div className='relative group'>
                   <img
-                    src={hobbitBooks[0].image}
-                    alt={hobbitBooks[0].name}
-                    className='w-72 h-96 object-cover rounded-lg shadow-lg transition-transform duration-300 transform group-hover:scale-110'
+                    src={book.image}
+                    alt={book.name}
+                    className='w-72 h-96 object-cover rounded-lg shadow-lg transition-transform duration-300 transform group-hover:scale-105'
                   />
                 </div>
               </a>
-            </div>
+            ))}
           </div>
+        </div>
 
-          <div>
-            <h3 className='text-3xl font-semibold mb-4 text-black text-center'>Movies</h3>
-            <div className='flex flex-wrap justify-center mb-4'>
-              {hobbitMovies.map((movie, index) => (
-                <a key={index} href={movie.link} target="_blank" rel="noopener noreferrer" className='flex flex-col items-center mx-4 mb-6'>
-                  <div className='relative group'>
-                    <img
-                      src={movie.image}
-                      alt={movie.name}
-                      className='w-72 h-96 object-cover rounded-lg shadow-lg transition-transform duration-300 transform group-hover:scale-110'
-                    />
-                  </div>
-                </a>
-              ))}
-            </div>
+        <div>
+          <h3 className='text-3xl font-semibold mb-4 text-black text-center'>Movies</h3>
+          <div className='flex flex-wrap justify-center mb-4'>
+            {movies.map((movie, index) => (
+              <a key={index} href={movie.link} target="_blank" rel="noopener noreferrer" className='flex flex-col items-center mx-4 mb-6'>
+                <div className='relative group'>
+                  <img
+                    src={movie.image}
+                    alt={movie.name}
+                    className='w-72 h-96 object-cover rounded-lg shadow-lg transition-transform duration-300 transform group-hover:scale-105'
+                  />
+                </div>
+              </a>
+            ))}
           </div>
-        </>
-      );
-    }
+        </div>
+      </>
+    );
   };
 
   return (
-    <div className='flex min-h-screen bg-gray-200 items-center justify-center'>
+    <div className='flex min-h-screen bg-gray-200'>
       <div className='relative w-[50rem] h-screen bg-cover bg-center flex items-center justify-center' style={{ backgroundImage: 'url(/movies-banner.jpg)', objectFit: 'cover' }}>
         <div className='w-full h-full bg-gradient-to-r from-black via-transparent to-transparent' />
 
@@ -151,6 +116,7 @@ export default function About() {
     </div>
   );
 }
+
 
 
 

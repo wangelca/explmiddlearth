@@ -18,7 +18,7 @@ export default function About() {
     { id: '5', name: 'Samwise Gamgee', image: 'https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Samwise-Gamgee.The-Lord-of-the-Rings-The-Fellowship-of-the-Ring.webp' },
     { id: '6', name: 'Gimli', image: 'https://assetsio.gnwcdn.com/gimli_OVQOp6S.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp' },
     { id: '7', name: 'Legolas', image: 'https://static1.srcdn.com/wordpress/wp-content/uploads/2022/03/Legolas-Traits-Low-Key.jpg' },
-    { id: '8', name: 'Gollum', image: 'https://static.wikia.nocookie.net/lotr/images/3/31/580751_418602258175385_1601212863_n.jpg/revision/latest?cb=20120907014131'},
+    { id: '8', name: 'Gollum', image: 'https://static.wikia.nocookie.net/lotr/images/3/31/580751_418602258175385_1601212863_n.jpg/revision/latest?cb=20120907014131' },
     { id: '9', name: 'Gandalf', image: 'https://i.kinja-img.com/image/upload/c_fill,h_900,q_60,w_1600/41a9435aa1ddb04b1835c70986edcf94.jpg' },
     { id: '10', name: 'Saruman', image: 'https://reactormag.com/wp-content/uploads/2015/07/LOTR-saruman-740x385.jpg' },
     { id: '11', name: 'Sauron', image: 'https://www.escapistmagazine.com/wp-content/uploads/2022/11/sauron.jpg?fit=1200%2C676' },
@@ -91,8 +91,8 @@ export default function About() {
     setSelectedCharacter(characterId);
     fetchQuote(characterId);
 
-    const selectedCharacter = characters.find(char => char.id === characterId);
-    setCharacterImage(selectedCharacter ? selectedCharacter.image : '');
+    const selectedChar = characters.find(char => char.id === characterId);
+    setCharacterImage(selectedChar ? selectedChar.image : '');
   };
 
   return (
@@ -114,9 +114,9 @@ export default function About() {
       <div className='flex-1 p-12 bg-white rounded-lg shadow-md'>
         <h2 className='text-4xl font-bold mb-2 text-black text-center'>Character Quotes</h2>
         <p className='text-center text-gray-600 mb-8'>
-          Choose from the main characters listed as in the Characters page to generate a random movie or book quote by them.
+          Choose from the main characters listed to generate a quote by them.
         </p>
-        <div className='text-center'>
+        <div className='text-center mb-8'>
           <select
             onChange={handleCharacterChange}
             className='p-2 border rounded-lg text-black'
@@ -136,11 +136,11 @@ export default function About() {
           </button>
         </div>
         <div className='text-center mt-6'>
-          <p className='text-lg text-black mb-4'>{quote}</p>
+          <p className='text-lg text-black mb-4'>{quote || 'Select a character to see a quote'}</p>
           {characterImage && (
             <img
               src={characterImage}
-              alt={selectedCharacter}
+              alt={selectedCharacter || 'Character Image'}
               className='max-w-md mx-auto mb-4 rounded-lg shadow-md'
             />
           )}
@@ -150,5 +150,6 @@ export default function About() {
     </div>
   );
 }
+
 
 

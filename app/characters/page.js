@@ -3,9 +3,10 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 export default function Characters() {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState({ lotr: [], hobbit: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showHobbit, setShowHobbit] = useState(false);
@@ -62,10 +63,11 @@ export default function Characters() {
           onClick={() => router.push('/')}
           className='absolute top-4 left-4 p-2 bg-gray-200 rounded-full hover:bg-gray-300'
         >
-          <img
+          <Image
             src='/back.png'
             alt='Back'
-            className='h-8 w-8'
+            width={32}
+            height={32}
           />
         </button>
       </div>
@@ -117,6 +119,7 @@ export default function Characters() {
     </div>
   );
 }
+
 
 
 

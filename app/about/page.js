@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function About() {
   const router = useRouter();
@@ -14,10 +15,11 @@ export default function About() {
           onClick={() => router.push('/')}
           className='absolute top-4 left-4 p-2 bg-gray-200 rounded-full hover:bg-gray-300'
         >
-          <img
+          <Image
             src='/back.png'
             alt='Back'
-            className='h-8 w-8'
+            width={32}
+            height={32}
           />
         </button>
       </div>
@@ -29,16 +31,16 @@ export default function About() {
               About Me
             </h1>
             <p className='text-lg text-gray-700'>
-              My name is Angelica and I'm currently studying Software Development.
+              My name is Angelica and I&apos;m currently studying Software Development.
             </p>
             <p className='text-lg text-gray-700'>
-              I'm extremely passionate about graphic design, web development, and mobile app development.
+              I&apos;m extremely passionate about graphic design, web development, and mobile app development.
             </p>
             <p className='text-lg text-gray-700'>
-              I'm a big fan of animals as I own many myself!
+              I&apos;m a big fan of animals as I own many myself!
             </p>
             <p className='text-lg text-gray-700'>
-              I've included pictures of my dogs, Yuki and Natsu, and two of my cats, Nito and Pippin.
+              I&apos;ve included pictures of my dogs, Yuki and Natsu, and two of my cats, Nito and Pippin.
             </p>
             <p className='text-lg text-gray-700'>
               Welcome to Middle Earth is a project I created to showcase my skills and knowledge in React.js and web development.
@@ -88,10 +90,12 @@ export default function About() {
                 { src: '/reacticon.png', label: 'React' },
               ].map((icon) => (
                 <div key={icon.label} className='relative flex flex-col items-center group'>
-                  <img
+                  <Image
                     src={icon.src}
                     alt={icon.label}
-                    className='h-16 w-16 object-contain transition-transform duration-300 ease-in-out transform group-hover:scale-110'
+                    width={64}
+                    height={64}
+                    className='object-contain transition-transform duration-300 ease-in-out transform group-hover:scale-110'
                   />
                   <div className='absolute bottom-0 mb-8 flex items-center justify-center'>
                     <span className='text-sm text-gray-700 bg-white rounded py-1 px-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
@@ -105,25 +109,33 @@ export default function About() {
 
           <div className='flex flex-wrap justify-center gap-4'>
             <div className='flex flex-row gap-4'>
-              <img
+              <Image
                 src='/natsu.jpg'
                 alt='Natsu'
-                className='h-56 w-56 object-cover rounded-lg'
+                width={224}
+                height={224}
+                className='object-cover rounded-lg'
               />
-              <img
+              <Image
                 src='/nito.jpg'
                 alt='Nito'
-                className='h-56 w-56 object-cover rounded-lg'
+                width={224}
+                height={224}
+                className='object-cover rounded-lg'
               />
-              <img
+              <Image
                 src='/pip.jpg'
                 alt='Pip'
-                className='h-56 w-56 object-cover rounded-lg'
+                width={224}
+                height={224}
+                className='object-cover rounded-lg'
               />
-              <img
+              <Image
                 src='/yuki.jpg'
                 alt='Yuki'
-                className='h-56 w-56 object-cover rounded-lg'
+                width={224}
+                height={224}
+                className='object-cover rounded-lg'
               />
             </div>
           </div>
@@ -132,6 +144,7 @@ export default function About() {
     </div>
   );
 }
+
 
 
 
